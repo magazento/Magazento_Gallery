@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title> <?php echo Mage::getStoreConfig('gallery/toplinks/link_title'); ?></title>
+	
+    <script type="text/javascript" src="<?php echo $this->getSkinUrl('magazento_gallery/jquery-1.8.2.min.js') ?>"></script>	
+	
+    <?php 
+        if (Mage::getStoreConfig('gallery/general/design') == 'white') $suffix = '';
+        if (Mage::getStoreConfig('gallery/general/design') == 'black') $suffix = '-full';
+    ?>
+    <link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('magazento_gallery/css/style'.$suffix.'.css') ?>" media="screen" />		        
+    <link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('magazento_gallery/megafolio/css/settings'.$suffix.'.css') ?>" media="screen" />
+    <link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('magazento_gallery/megafolio/css/lightbox'.$suffix.'.css') ?>" media="screen" />		
+
+    <script type="text/javascript" src="<?php echo $this->getSkinUrl('magazento_gallery/megafolio/js/jquery.themepunch.megafolio.js') ?>"></script>		
+    <script type="text/javascript" src="<?php echo $this->getSkinUrl('magazento_gallery/megafolio/js/jquery.themepunch.plugins.min.js') ?>"></script>		
+    <script type="text/javascript" src="<?php echo $this->getSkinUrl('magazento_gallery/megafolio/flowplayer_plugins/flowplayer-3.2.6.min.js') ?>"></script>
+
+    <link href="//vjs.zencdn.net/4.1/video-js.css" rel="stylesheet">
+    <script src="//vjs.zencdn.net/4.1/video.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+        
+</head>
+<body <?php if (Mage::getStoreConfig('gallery/general/design') == 'black') echo 'style="background:#333;"';?> >
+    
+<style type="text/css">
+    .cell1x1 img, .cell1x2 img, .cell2x1 img, .cell2x2 img, 
+    .cell1x1 iframe, .cell1x2 iframe, .cell2x1 iframe, .cell2x2 iframe {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        width: <?php echo (Mage::getStoreConfig('gallery/general/cellwidth')-10);?>px;
+        height: <?php echo (Mage::getStoreConfig('gallery/general/cellheight')-10);?>px;
+    }
+</style>
+    
+    <?php $categories = Mage::getModel('gallery/category')->getGalleryCategopriesFrontend(Mage::app()->getStore()->getStoreId()); ?>
+    <div id="main-background">
+        <div class="bg-tiled fadein" data-category="catall" data-src="<?php echo (Mage::getStoreConfig('gallery/general/background'));?>"></div>
+        <?php foreach ($categories as $category): ?>
+            <div class="bg-tiled fadein" data-category="cat<?php echo $category->getId()?>" data-src="<?php echo Mage::helper('gallery')->getBackgroundImageFileHttp().DS.$category->getItemAddress(); ?>"></div>
+        <?php endforeach;?>     
+    </div>	
+
+    <div id="content_wrap" style="z-index:100">	
+        
+        <h3><div id="selected-filter-title" class="fullwidth"><?php echo Mage::helper('gallery')->__('All Categories'); ?></div></h3>
+        <div class="example-wrapper">	
+
+                <div id="portfolio-filter" class="filter-fullwidth dropdown ">
+                    <div class="buttonlight"><span class="category">Category Selection</span></div>					
+                    <ul>
+                        <li data-category="catall"><?php echo Mage::helper('gallery')->__('All Categories'); ?></li>          
+                        <?php foreach ($categories as $category): ?>
+                            <li data-category="cat<?php echo $category->getId()?>"><?php echo $category->getTitle()?></li>                         
+                        <?php endforeach;?>
+                    </ul>																		
+                </div>	
+            
+            <div id="products" class="tp-portfolio">	
+                <?php $items = Mage::getModel('gallery/item')->getAllGalleryItems(Mage::app()->getStore()->getStoreId());?>                
+                <?php foreach ($items as $k=>$item): ?>
+                    <?php
+                        $this->getChild('magazento_gallery_item_category')->setData("item", $item);
+                        echo $this->getChildHtml('magazento_gallery_item_category',false);
+                    ?>               
+                <?php endforeach; ?>               
+            </div>
+        </div>	
+    </div>	
+
+    <script type="text/javascript">
+        var tpj=jQuery;
+        tpj.noConflict();
+
+        tpj(document).ready(function() {
+
+        if (tpj.fn.cssOriginal!=undefined)
+                tpj.fn.css = tpj.fn.cssOriginal;
+
+                tpj('#products').portfolio({	
+
+                        <!-- GRID SETTINGS -->
+                        gridOffset:<?php echo Mage::getStoreConfig('gallery/general/gridoffset');?>,		<!-- Manual Right Padding Offset for 100% Width -->
+                        cellWidth:<?php echo Mage::getStoreConfig('gallery/general/cellwidth');?>,			<!-- The Width of one CELL in PX-->						
+                        cellHeight:<?php echo Mage::getStoreConfig('gallery/general/cellheight');?>,		<!-- The Height of one CELL in PX-->
+                        cellPadding:<?php echo Mage::getStoreConfig('gallery/general/gridoffset');?>,		<!-- Spaces Between the CELLS -->
+                        entryProPage:<?php echo Mage::getStoreConfig('gallery/general/entrypropage');?>,		<!-- The Max. Amount of the Entries per Page, Rest made by Pagination -->
+                        captionOpacity:<?php echo Mage::getStoreConfig('gallery/general/captionopacity');?>,		<!-- Opacity of Caption -->
+                        captionPosition:"<?php echo Mage::getStoreConfig('gallery/general/captionposition');?>",
+                        captionYOffset:<?php echo Mage::getStoreConfig('gallery/general/captionyoffset');?>,
+
+                        <!-- FILTERING -->
+                        filterList:"#portfolio-filter",                                                             <!-- Which Filter is used for the Filtering / Pagination -->
+                        title:"#selected-filter-title",                                                             <!-- Which Div should be used for showing the Selected Title of the Filter -->												
+
+                        <!-- Page x from All Pages -->
+                        pageOfFormat:"<?php echo Mage::getStoreConfig('gallery/general/pageofformat');?>",		<!-- The #n will be replaced with the actual Item Nr., #m will be replaced with the amount of all items in the filtered Gallery-->						
+
+                        <!-- Social Settings-->
+                        showGoogle:"yes",                                                                           <!-- Show The Social Buttons ...-->
+                        showFB:"yes",
+                        showTwitter:"yes",
+
+                        showEmail:"yes",		<!-- ADD EMAIL TO LINK ALSO TO THE LIGHTBOX  -->
+                        emailLinkText:"<?php echo Mage::getStoreConfig('gallery/general/emaillinktext');?>",
+                        emailBody:"<?php echo Mage::getStoreConfig('gallery/general/emaillinktext');?>",            <!-- The #url will be replaced with the url of the image -->
+                        emailUrlCustomPrefix:"<?php echo Mage::getStoreConfig('gallery/general/emailurlcustomprefix');?>",	 <!-- Use this if you wish a Custom Prefix to Link Path -->						
+                        emailUrlCustomSuffix:"<?php echo Mage::getStoreConfig('gallery/general/emailurlcustomsuffix');?>",	 <!-- Use This if you wish to use a Custtom Suffix for Link Path -->
+
+                        urlDivider:"?",                                                                             <!-- What is the Divider in the Url to add the Variables, Filter and Image ID . Impotant for WordPress i.e. Social will share this link with this divider -->
+                        backgroundHolder:"#main-background",
+                        backgroundSlideshow:0
+                })	
+
+        });
+    </script>
+</body>
+</html>

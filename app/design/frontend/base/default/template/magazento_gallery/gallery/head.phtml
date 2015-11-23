@@ -1,0 +1,19 @@
+<?php if (Mage::getStoreConfig('gallery/jq/on')):?>
+    <script type="text/javascript" src="<?php echo $this->getSkinUrl('magazento_gallery/jquery-1.8.2.min.js') ?>"></script>	
+<?php endif; ?>
+
+<?php 
+    if (Mage::getStoreConfig('gallery/general/design') == 'white') $suffix = '';
+    if (Mage::getStoreConfig('gallery/general/design') == 'black') $suffix = '-full';
+?>
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('magazento_gallery/css/style'.$suffix.'.css') ?>" media="screen" />		        
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('magazento_gallery/megafolio/css/settings'.$suffix.'.css') ?>" media="screen" />
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('magazento_gallery/megafolio/css/lightbox'.$suffix.'.css') ?>" media="screen" />		
+
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('magazento_gallery/megafolio/js/jquery.themepunch.megafolio.js') ?>"></script>		
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('magazento_gallery/megafolio/js/jquery.themepunch.plugins.min.js') ?>"></script>		
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('magazento_gallery/megafolio/flowplayer_plugins/flowplayer-3.2.6.min.js') ?>"></script>
+
+<link href="//vjs.zencdn.net/4.1/video-js.css" rel="stylesheet">
+<script src="//vjs.zencdn.net/4.1/video.js"></script>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>

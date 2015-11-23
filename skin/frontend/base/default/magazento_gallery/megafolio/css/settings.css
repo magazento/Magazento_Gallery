@@ -1,0 +1,194 @@
+.filter {		
+	position:absolute;	
+	right:0px;	
+	margin-top:-90px;
+	z-index:1000;
+}
+
+.fullwidth{
+	margin-left:0px;
+}
+
+.filter-fullwidth{
+	position:absolute;
+	margin-top:-90px;
+	z-index:1000;
+	right:0px !important;
+}
+
+.category{
+	background:url('../assets/button/category_plus.png') no-repeat top left;
+	height:14px;
+	padding-left:36px;
+	padding-bottom:2px;
+	padding-top:0px;
+	position:relative;	
+	z-index:1100;
+}
+
+.buttonlight:hover span{
+	background:url('../assets/button/category_plus_light.png') no-repeat top left;
+}
+
+.dropdown ul{
+	font-family:Arial, sans-serif;
+	font-size: 12px; 
+	font-weight:bold;
+	list-style: none; 	
+	z-index:1000;
+	padding-top:0px;
+	line-height: 30px;	
+	 color: #777;
+	padding-left:0px;
+	-webkit-box-shadow: 0px 2px 5px 1px rgba(100,100,100,0.1);
+	-moz-box-shadow: 0px 2px 5px 1px rgba(100,100,100,0.1);
+	box-shadow: 0px 2px 5px 1px rgba(100,100,100,0.1);
+}
+
+.dropdown ul li{
+	background-color:#fff;
+	border-left:1px solid #e6e6e6;	
+	border-right:1px solid #e6e6e6;		
+	cursor:pointer;
+	padding-left:20px;
+
+}
+
+.dropdown ul li:first-child{
+	padding-top:30px;
+}
+
+.dropdown ul li:last-child{
+	-webkit-border-radius: 0px 0px 5px 5px;
+	-moz-border-radius: 0px 0px 5px 5px;
+	border-radius: 0px 0px 5px 5px;
+	padding-bottom:14px;
+}
+
+.dropdown ul li:hover, .dropdown .selected-filter-item{
+	color:#00B4FF;
+}
+
+
+/***************************
+	-	PAGINATION	-
+****************************/	
+.pagination{
+ position:absolute;
+ right:0px;
+ bottom:0px;
+ margin-bottom:-60px;
+}
+
+.pagination .pageofformat{
+ font-family:Arial, sans-serif;
+ font-size:12px; 
+ font-weight:bold;
+ color:#ddd;
+ float:left;
+ padding-top:9px;
+ padding-right:10px
+}
+
+.pagination .pages{ 
+ float:left;
+ margin-left:5px;
+ padding-left:10px;
+ padding-right:10px
+}
+
+
+/*************************************************************
+	-	THE BUTTONS LIKE FILTER or PAGINATION BUTTONS	-
+**************************************************************/	
+.buttonlight { 
+ font-family:Arial, sans-serif;
+ font-weight:bold;
+ position:relative;
+ z-index:1100;
+ float: left;
+ height: 30px;
+ line-height: 30px;
+ font-size: 12px; 
+ -webkit-border-radius: 5px;
+ -moz-border-radius: 5px;
+ border-radius: 5px;
+}
+
+.buttonlight:link, .buttonlight:visited, .buttonlight {
+ color: #777;
+ padding: 0 20px 0 20px;
+ text-align: center;
+ text-shadow: 1px 1px 0px #fff;
+ background: #999 url('../assets/button/btn_light.png') repeat-x center top;
+ border: 1px solid #cdcdcd;
+ text-decoration: none;
+ font-weight: bold;
+ cursor:pointer;
+ position:relative;
+ z-index:1100;
+ 
+}
+
+.buttonlight:hover, .comment-reply-link:hover , .buttonlight-selected {
+ color: #fff;
+ text-shadow: 1px 1px 0px #000;
+ background: #333;
+ border: 1px solid #555555;
+ text-decoration: none;
+}
+
+
+
+/************************************
+	-	THE PRODUCTSGALLERY	 -
+************************************/
+.thumb-rounded {
+	border:1px solid #e6e6e6;	
+}
+
+.cell1x1, .cell1x2, .cell2x1, .cell2x2 {
+	border:1px solid #e6e6e6;	
+	background-color:#fff;		
+	overflow:hidden;
+}
+
+.cell1x1 img, .cell1x2 img, .cell2x1 img, .cell2x2 img{			
+	position:absolute;
+	top:5px;
+	left:5px;
+	
+}
+
+.tp-portfolio .caption {		
+	font-size:12px;
+	font-family:Arial, sans-serif;
+	position:absolute;		
+	padding:8px 15px 8px 15px;
+	background-color:#000;	
+	text-align:center;
+	color:#fff;
+	 -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	visibility:hidden;
+}
+
+.tp-portfolio .caption.white {		
+	font-size:12px;
+	font-family:Arial, sans-serif;
+	font-weight: bold;
+	position:absolute;		
+	padding:8px 15px 8px 15px;
+	background-color:#fff;	
+	text-align:center;
+	color:#000;
+	 -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	visibility:hidden;
+}
+
+.tp-portfolio .entry-info{
+	display:none;
+}

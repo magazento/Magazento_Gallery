@@ -1,0 +1,190 @@
+/*----------------------------------------------------------------------------- 
+
+THEMEPUNCH LIGHTBOX STYLE SHEET
+
+Screen Stylesheet 
+
+version:   	1.0 
+date:      	24.11.2011 
+author:		themepunch
+email:     	support@themepunch.com
+
+-----------------------------------------------------------------------------*/
+
+
+.hover-more-sign{
+	background:url('../assets/button/more.png') no-repeat;
+	width:50px;
+	height:50px;
+	
+	position:absolute;
+	cursor:pointer;
+}
+
+.hover-blog-link-sign{
+	background:url('../assets/button/link.png') no-repeat;
+	width:50px;
+	height:50px;
+	
+	position:absolute;
+	cursor:pointer;
+}
+
+
+
+/************************************
+	-	DARK-LIGHTBOX STYLE	-
+************************************/
+
+
+.dark-lightbox.overlay{
+	background-color:#000;
+	z-index:999990;
+	position:fixed;	
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";	
+	filter: alpha(opacity=80);	
+	-moz-opacity:0.8;
+	-khtml-opacity: 0.8;
+	opacity: 0.8;
+}
+
+.dark-lightbox.loader{	
+	background:url('../assets/loader/preloader.gif') no-repeat 20px 20px;
+	background-color:#222;
+	width:64px;
+	height:64px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	margin-left:-32px;
+	margin-right:-32px;
+	position:fixes;
+	z-index:999991;
+}
+
+.dark-lightbox.lightboxitem{
+	position:fixed;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	border-radius: 10px 10px 10px 10px;
+	width:300px;
+	height:auto;
+	background-color:#222;
+	z-index:999992;
+	
+	/*-webkit-box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+	box-shadow: 0px 0px 20px rgba(0,0,0,0.5);*/
+}
+
+.dark-lightbox.lightboxitem .tp-mainimage{
+/*	-webkit-border-radius: 10px 10px 0px 0px;
+	-moz-border-radius: 10px 10px 0px 0px;
+	border-radius: 10px 10px 0px 0px;*/	
+}
+
+
+.dark-lightbox.infofield{
+	padding-top:20px;
+	padding-bottom:20px;
+	padding-left:30px;
+	padding-right:30px;
+	line-height:20px;
+}
+
+.dark-lightbox.infofield .title{
+	
+	font-family: 'PT Sans Narrow', sans-serif;
+	font-size: 20px;
+	font-weight: normal;
+	color:#fff;
+	float:left;
+	margin-right:20px;	
+	margin-bottom:20px;
+}
+
+.dark-lightbox.infofield .pageofformat{
+	
+	font-family: 'PT Sans Narrow', sans-serif;
+	font-size: 20px;
+	font-weight: normal;
+	color:#444;
+	float:left;	
+	margin-bottom:20px;
+	
+}
+
+	
+.dark-lightbox.infofield .lightboxsocials{	
+	float:left;		
+}
+
+.dark-lightbox.infofield .lightboxsocials .twitter, .dark-lightbox.infofield .lightboxsocials .facebook, .dark-lightbox.infofield .lightboxsocials .email, .dark-lightbox.infofield .lightboxsocials .googleplus {	
+	float:left;	
+	margin-bottom:20px;
+	height:25px;
+	width:120px;
+	overflow:hidden;
+}
+
+.email a{
+	font-size:14px;
+	color:#111;
+	text-decoration:none;
+	font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.email a:link, .email a:visited{
+	text-decoration:none;
+}
+
+.dark-lightbox a{
+	color:#bbb;
+}
+
+
+
+.dark-lightbox.description{	
+	clear:both;	
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color:#777;
+	margin-bottom:20px;
+}
+
+
+
+.dark-lightbox.leftbutton{
+	width:30px;
+	height:45px;
+	margin-left:-30px;
+	margin-top:14px;
+	background:url('../assets/button/left_dark.png') no-repeat top;
+	position:absolute;
+	cursor:pointer;
+}
+
+.dark-lightbox.rightbutton{
+	width:30px;
+	height:45px;
+	margin-right:-30px;
+	margin-top:14px;
+	background:url('../assets/button/right_dark.png') no-repeat top;
+	position:absolute;
+	cursor:pointer;
+}
+
+.dark-lightbox.closebutton{
+	width:30px;
+	height:30px;
+	right:10px;
+	top:10px;	
+	background:url('../assets/button/close_dark.png') no-repeat top;
+	position:absolute;
+	cursor:pointer;
+}
+
+.dark-lightbox.leftbutton:hover, .dark-lightbox.rightbutton:hover, .dark-lightbox.closebutton:hover{
+	background-position:bottom;
+}

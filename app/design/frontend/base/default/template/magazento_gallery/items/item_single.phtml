@@ -1,0 +1,79 @@
+<?php $item = $this->getData('item'); ?>
+<?php if ($item->getItemType() == 'image'): ?>
+        <?php $image = Mage::helper('gallery')->getItemImageHttp($item); ?>
+        <div class="cell1x1 catsingleitems">
+            <div class="thumbnails" data-type="image" data-mainthumb="<?php echo $image; ?>" data-bwthumb="<?php echo $image; ?>"></div>							
+            <div class="caption"><?php echo $item->getTitle(); ?></div>
+            <?php if ($item->getUrl()): ?>
+                <a href="<?php echo $item->getUrl(); ?>" class="blog-link"></a>
+            <?php endif; ?>
+            <div class="entry-info">
+                <div class="media" data-src="<?php echo $image; ?>"></div>
+                <div class="entry-title"><?php echo $item->getTitle(); ?></div>
+                <div class="entry-description"><?php echo $item->getContent(); ?></div>
+            </div>														
+        </div>
+<?php endif; ?>  
+
+<?php if ($item->getItemType() == 'youtube'): ?>
+        <?php $image = Mage::helper('gallery')->getItemYoutube($item); ?>
+        <div class="cell1x1 catsingleitems">
+            <div class="thumbnails" data-type="youtube" data-mainthumb='<iframe class="normal-thumbnail-yoyo" height="<?php echo (Mage::getStoreConfig('gallery/page/cellheight')-10);?>" width="<?php echo (Mage::getStoreConfig('gallery/page/cellwidth')-10);?>" src="http://www.youtube.com/embed/<?php echo $item->getData('item_address')?>" frameborder="0" allowfullscreen="" ></iframe>' ></div>							
+            <div class="caption red"><?php echo $item->getTitle(); ?></div>							
+            <?php if ($item->getUrl()): ?>
+                <a href="<?php echo $item->getUrl(); ?>" class="blog-link"></a>
+            <?php endif; ?>
+            <div class="entry-info">
+                <div class="media" data-typ="video" data-width="720"  data-height="408" data-src='<?php echo Mage::helper('gallery')->getItemYoutube($item); ?>'></div>
+                <div class="entry-title"><?php echo $item->getTitle(); ?></div>
+                <div class="entry-description"><?php echo $item->getContent(); ?></div>
+            </div>														
+        </div>
+<?php endif; ?>                    
+
+<?php if ($item->getItemType() == 'vimeo'): ?>
+        <?php $image = Mage::helper('gallery')->getItemVimeo($item); ?>
+        <div class="cell1x1 catsingleitems">
+            <div class="thumbnails" data-type="youtube" data-mainthumb='<iframe class="normal-thumbnail-yoyo" src="http://player.vimeo.com/video/<?php echo $item->getData('item_address')?>?badge=0" height="<?php echo (Mage::getStoreConfig('gallery/page/cellheight')-10);?>" width="<?php echo (Mage::getStoreConfig('gallery/page/cellwidth')-10);?>" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>' ></div>							
+            <div class="caption"><?php echo $item->getTitle(); ?></div>							
+            <?php if ($item->getUrl()): ?>
+                <a href="<?php echo $item->getUrl(); ?>" class="blog-link"></a>
+            <?php endif; ?>
+            <div class="entry-info">
+                <div class="media" data-typ="video" data-width="720"  data-height="408" data-src='<?php echo Mage::helper('gallery')->getItemVimeo($item); ?>'></div>
+                <div class="entry-title"><?php echo $item->getTitle(); ?></div>
+                <div class="entry-description"><?php echo $item->getContent(); ?></div>
+            </div>														
+        </div>
+<?php endif; ?>
+
+<?php if ($item->getItemType() == 'video'): ?>
+    <?php $image = Mage::helper('gallery')->getItemVimeo($item); ?>
+    <div class="cell1x1 <?php echo Mage::helper('gallery')->loadCategories($item); ?>">
+        <div class="thumbnails" data-mainthumb="<?php echo $this->getSkinUrl('magazento_gallery/images/icon_video.png') ?>" data-bwthumb="<?php echo $this->getSkinUrl('magazento_gallery/images/icon_video.png') ?>"></div>
+        <div class="caption blue"><?php echo $item->getTitle(); ?></div>
+        <?php if ($item->getUrl()): ?>
+            <a href="<?php echo $item->getUrl(); ?>" class="blog-link"></a>
+        <?php endif; ?>
+        <?php
+        $ext = pathinfo($item->getData('item_address'), PATHINFO_EXTENSION);
+        if ($ext == 'flv'):
+            ?>
+            <div class="entry-info">
+                <div class="media" data-typ="video" data-flv="true" data-width="640" data-height="360" data-flvplayer="<?php echo $this->getSkinUrl('magazento_gallery/megafolio/flowplayer_plugins/flowplayer-3.2.7.swf') ?>" data-src='<?php echo Mage::helper('gallery')->getItemVideo($item); ?>'></div>
+                <div class="entry-title"><?php echo $item->getTitle(); ?></div>
+                <div class="entry-description"><?php echo $item->getContent(); ?></div>
+            </div>
+        <?php endif;?>
+
+        <?php if ($ext == 'mp4'): ?>
+            <div class="entry-info">
+                <div class="media" data-typ="video-mp4" data-width="640" data-height="360" data-mp4='<?php echo Mage::helper('gallery')->getItemVideoHttp($item); ?>'></div>
+                <div class="entry-title"><?php echo $item->getTitle(); ?></div>
+                <div class="entry-description"><?php echo $item->getContent(); ?></div>
+            </div>
+        <?php endif;?>
+    </div>
+<?php endif;
+
+?>

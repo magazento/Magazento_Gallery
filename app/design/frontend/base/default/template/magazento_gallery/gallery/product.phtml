@@ -1,0 +1,118 @@
+<?php echo $this->getLayout()->createBlock('core/template')->setTemplate('magazento_gallery/gallery/head.phtml')->toHtml(); ?>
+<style type="text/css">
+    .cell1x1 img, .cell1x2 img, .cell2x1 img, .cell2x2 img, 
+    .cell1x1 iframe, .cell1x2 iframe, .cell2x1 iframe, .cell2x2 iframe {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        width: <?php echo (Mage::getStoreConfig('gallery/product/cellwidth')-10);?>px;
+        height: <?php echo (Mage::getStoreConfig('gallery/product/cellheight')-10);?>px;
+    }
+    
+    #content_wrap{
+        width: 700px !important;
+    }  
+    .example-wrapper{
+        width:600px !important;
+    }          
+    #products{
+        width:700px !important;  
+    }         
+    .filter-fullwidth {    
+        right: 0px !important;
+    }             
+</style>
+    
+<?php 
+    $product_id = Mage::registry('current_product')->getId();
+    $store_id = Mage::app()->getStore()->getStoreId();
+    $gallery_categories = Mage::getModel('gallery/category')->getGalleryCategopriesFrontend($store_id, null,null,$product_id ); 
+    $gallery_items = Mage::getModel('gallery/item')->getGalleryItemsFrontend($store_id, null,null,$product_id ); 
+?>
+
+<div id="content_wrap" style="z-index:100">	
+        
+    <h3><div id="selected-filter-title" class="fullwidth"><?php echo Mage::helper('gallery')->__('All Categories'); ?></div></h3>
+    <div class="example-wrapper">	
+        <div id="portfolio-filter" class="filter-fullwidth dropdown ">
+            <div class="buttonlight"><span class="category"><?php echo Mage::helper('gallery')->__('Category Selection'); ?></span></div>
+            <ul>
+                <?php if ($gallery_items):?>    
+                    <li data-category="catsingleitems"><?php echo Mage::helper('gallery')->__('General'); ?></li>  
+                <?php endif;?>                         
+                <?php foreach ($gallery_categories as $category): ?>
+                    <li data-category="cat<?php echo $category->getId()?>"><?php echo $category->getTitle()?></li>                         
+                <?php endforeach;?>
+            </ul>																		
+        </div>			
+
+        <div id="products" class="tp-portfolio">	
+            <?php $items = Mage::getModel('gallery/item')->getGalleryItemsFilterCategory(Mage::app()->getStore()->getStoreId(),$gallery_categories); ?>
+            <?php foreach ($items as $k=>$item): ?>
+                <?php
+                    $this->getChild('magazento_gallery_item_category')->setData("item", $item);
+                    echo $this->getChildHtml('magazento_gallery_item_category',false);
+                ?>               
+            <?php endforeach; ?>               
+            <?php foreach ($gallery_items as $k=>$item): ?>
+                <?php
+                    $this->getChild('magazento_gallery_item_single')->setData("item", $item);
+                    echo $this->getChildHtml('magazento_gallery_item_single',false);
+                ?>               
+            <?php endforeach; ?>               
+        </div>        
+    </div>
+</div>	
+
+
+<script type="text/javascript">
+    var tpj=jQuery;
+    tpj.noConflict();
+
+    tpj(document).ready(function() {
+
+    if (tpj.fn.cssOriginal!=undefined)
+            tpj.fn.css = tpj.fn.cssOriginal;
+
+            tpj('#products').portfolio({	
+
+                    <!-- GRID SETTINGS -->
+                    gridOffset:<?php echo Mage::getStoreConfig('gallery/category/gridoffset');?>,		<!-- Manual Right Padding Offset for 100% Width -->
+                    cellWidth:<?php echo Mage::getStoreConfig('gallery/category/cellwidth');?>,			<!-- The Width of one CELL in PX-->						
+                    cellHeight:<?php echo Mage::getStoreConfig('gallery/category/cellheight');?>,		<!-- The Height of one CELL in PX-->
+                    cellPadding:<?php echo Mage::getStoreConfig('gallery/category/gridoffset');?>,		<!-- Spaces Between the CELLS -->
+                    entryProPage:<?php echo Mage::getStoreConfig('gallery/category/entrypropage');?>,		<!-- The Max. Amount of the Entries per Page, Rest made by Pagination -->
+                    captionOpacity:<?php echo Mage::getStoreConfig('gallery/category/captionopacity');?>,		<!-- Opacity of Caption -->
+                    captionPosition:"<?php echo Mage::getStoreConfig('gallery/category/captionposition');?>",
+                    captionYOffset:<?php echo Mage::getStoreConfig('gallery/category/captionyoffset');?>,
+
+                    <!-- FILTERING -->
+                    filterList:"#portfolio-filter",                                                             <!-- Which Filter is used for the Filtering / Pagination -->
+                    title:"#selected-filter-title",                                                             <!-- Which Div should be used for showing the Selected Title of the Filter -->												
+
+                    <!-- Page x from All Pages -->
+                    pageOfFormat:"<?php echo Mage::getStoreConfig('gallery/general/pageofformat');?>",		<!-- The #n will be replaced with the actual Item Nr., #m will be replaced with the amount of all items in the filtered Gallery-->						
+
+                    <!-- Social Settings-->
+                    showGoogle:"yes",                                                                           <!-- Show The Social Buttons ...-->
+                    showFB:"yes",
+                    showTwitter:"yes",
+
+                    showEmail:"yes",		<!-- ADD EMAIL TO LINK ALSO TO THE LIGHTBOX  -->
+                    emailLinkText:"<?php echo Mage::getStoreConfig('gallery/general/emaillinktext');?>",
+                    emailBody:"<?php echo Mage::getStoreConfig('gallery/general/emaillinktext');?>",            <!-- The #url will be replaced with the url of the image -->
+                    emailUrlCustomPrefix:"<?php echo Mage::getStoreConfig('gallery/general/emailurlcustomprefix');?>",	 <!-- Use this if you wish a Custom Prefix to Link Path -->						
+                    emailUrlCustomSuffix:"<?php echo Mage::getStoreConfig('gallery/general/emailurlcustomsuffix');?>",	 <!-- Use This if you wish to use a Custtom Suffix for Link Path -->
+
+                    urlDivider:"?",                                                                             <!-- What is the Divider in the Url to add the Variables, Filter and Image ID . Impotant for WordPress i.e. Social will share this link with this divider -->
+                    backgroundHolder:"#main-background",
+                    backgroundSlideshow:0
+
+            })	
+
+
+
+
+
+    });
+</script>

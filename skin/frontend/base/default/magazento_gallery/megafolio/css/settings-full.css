@@ -1,0 +1,214 @@
+.filter {		
+	position:absolute;	
+	right:0px;	
+	margin-top:-90px;
+	z-index:1000;
+}
+
+.fullwidth{
+	margin-left:30px;
+}
+
+.filter-fullwidth{
+	position:absolute;
+	margin-top:-90px;
+	z-index:1000;
+	right:90px !important;	
+}
+
+.category{
+	background:url('../assets/button/category_plus_light.png') no-repeat top left;
+	height:14px;
+	padding-left:36px;
+	padding-bottom:2px;
+	padding-top:0px;
+	position:relative;	
+	z-index:1100;
+}
+
+.buttonlight:hover span{
+	background:url('../assets/button/category_plus.png') no-repeat top left;
+}
+
+.dropdown ul{
+	font-family:Arial, sans-serif;
+	font-size: 12px; 
+	font-weight:bold;
+	list-style: none; 	
+	z-index:1000;
+	padding-top:0px;
+	line-height: 30px;	
+	color: #777;
+	padding-left:0px;
+	-webkit-box-shadow: 0px 2px 5px 1px rgba(100,100,100,0.1);
+	-moz-box-shadow: 0px 2px 5px 1px rgba(100,100,100,0.1);
+	box-shadow: 0px 2px 5px 1px rgba(100,100,100,0.1);
+}
+
+.dropdown ul li{
+	background-color:#222;
+	border-left:1px solid #222;	
+	border-right:1px solid #222;		
+	cursor:pointer;
+	padding-left:20px;
+	text-shadow: 1px 1px 0px #000;
+}
+
+.dropdown ul li:first-child{
+	padding-top:30px;
+}
+
+.dropdown ul li:last-child{
+	-webkit-border-radius: 0px 0px 5px 5px;
+	-moz-border-radius: 0px 0px 5px 5px;
+	border-radius: 0px 0px 5px 5px;
+	padding-bottom:14px;
+}
+
+.dropdown ul li:hover, .dropdown .selected-filter-item{
+	color:#fff;
+}
+
+
+/***************************
+	-	PAGINATION	-
+****************************/	
+.pagination{
+ position:absolute;
+ right:90px;
+ bottom:0px;
+ margin-bottom:-60px;
+}
+
+.pagination .pageofformat{
+ font-family:Arial, sans-serif;
+ font-size:12px; 
+ font-weight:bold;
+ color:#fff;
+ float:left;
+ padding-top:9px;
+ padding-right:10px;
+ text-shadow: 1px 1px 0px #000;
+}
+
+.pagination .pages{ 
+ float:left;
+ margin-left:5px;
+ padding-left:10px;
+ padding-right:10px
+}
+
+
+/*************************************************************
+	-	THE BUTTONS LIKE FILTER or PAGINATION BUTTONS	-
+**************************************************************/	
+.buttonlight { 
+ font-family:Arial, sans-serif;
+ font-weight:bold;
+ position:relative;
+ z-index:1100;
+ float: left;
+ height: 30px;
+ line-height: 30px;
+ font-size: 12px; 
+ -webkit-border-radius: 5px;
+ -moz-border-radius: 5px;
+ border-radius: 5px;
+-webkit-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.6);
+-moz-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.6);
+box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.6);
+}
+
+.buttonlight:link, .buttonlight:visited, .buttonlight {
+ color: #999;
+ padding: 0 20px 0 20px;
+ text-align: center;
+ text-shadow: 1px 1px 0px #000;
+ background: #999 url('../assets/button/btn_dark.png') repeat-x center top;
+ border: 1px solid #222;
+ text-decoration: none;
+ font-weight: bold;
+ cursor:pointer;
+ position:relative;
+ z-index:1100;
+ 
+}
+
+.buttonlight:hover, .comment-reply-link:hover , .buttonlight-selected {
+ color: #fff;
+ text-shadow: 1px 1px 0px #000;
+ background: #333;
+ border: 1px solid #222;
+ text-decoration: none;
+}
+
+
+
+/************************************
+	-	THE PRODUCTSGALLERY	 -
+************************************/
+.thumb-rounded {
+	border:1px solid #e6e6e6;	
+}
+
+.cell1x1, .cell1x2, .cell2x1, .cell2x2 {
+	border:1px solid #000;	
+	background: transparent url('../assets/black65.png') repeat center top;		
+	overflow:hidden;
+}
+
+.cell1x1 img, .cell1x2 img, .cell2x1 img, .cell2x2 img{			
+	position:absolute;
+	top:5px;
+	left:5px;
+	
+}
+
+.tp-portfolio .caption {		
+	font-size:12px;
+	font-family:Arial, sans-serif;
+	position:absolute;		
+	padding:8px 15px 8px 15px;
+	background-color:#000;	
+	text-align:center;
+	color:#fff;
+	 -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	visibility:hidden;
+}
+
+.tp-portfolio .caption.blue {		
+	font-size:12px;
+	font-family:Arial, sans-serif;
+	position:absolute;		
+	padding:8px 15px 8px 15px;
+	background-color:#00adef;	
+	text-align:center;
+	color:#fff;
+	 -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	text-shadow: 1px 1px 0px #000;
+	visibility:hidden;
+}
+
+.tp-portfolio .caption.red {		
+	font-size:12px;
+	font-family:Arial, sans-serif;
+	position:absolute;		
+	padding:8px 15px 8px 15px;
+	background-color:#9e0e09;	
+	text-align:center;
+	color:#fff;
+	 -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	text-shadow: 1px 1px 0px #000;
+	visibility:hidden;
+}
+
+
+.tp-portfolio .entry-info{
+	display:none;
+}

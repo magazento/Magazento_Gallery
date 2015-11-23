@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+   <modules>
+       <Magazento_Gallery>
+           <version>1.1.4</version>
+       </Magazento_Gallery>
+   </modules>
+  <admin>
+       <routers>
+           <gallery>
+               <use>admin</use>
+               <args>
+                   <module>Magazento_Gallery</module>
+                   <frontName>gallery</frontName>
+               </args>
+           </gallery>
+       </routers>
+   </admin>
+   <frontend>
+       <routers>
+           <gallery>
+               <use>standard</use>
+               <args>
+                   <module>Magazento_Gallery</module>
+                   <frontName>gallery</frontName>
+               </args>
+           </gallery>
+       </routers>
+       <layout>
+           <updates>
+               <gallery>
+                   <file>magazento_gallery.xml</file>
+               </gallery>
+           </updates>
+       </layout>
+        <events>
+            <controller_action_layout_generate_xml_before>
+                <observers>
+                    <gallery>
+                        <type>singleton</type>
+                            <class>gallery/layout</class>
+                        <method>fetchDbLayoutUpdates</method>
+                    </gallery>
+                </observers>
+            </controller_action_layout_generate_xml_before>
+        </events>       
+   </frontend>
+
+   <global>
+       <models>
+           <gallery>
+               <class>Magazento_Gallery_Model</class>
+               <resourceModel>gallery_mysql4</resourceModel>
+           </gallery>
+           <gallery_mysql4>
+               <class>Magazento_Gallery_Model_Mysql4</class>
+               <entities>
+                   <item>
+                       <table>magazento_gallery_item</table>
+                   </item>
+                   <item_store>
+                       <table>magazento_gallery_item_store</table>
+                   </item_store>
+                    <item_category>
+                        <table>magazento_gallery_item_category</table>
+                    </item_category>                          
+                   
+                   <category>
+                       <table>magazento_gallery_category</table>
+                   </category>
+                   <category_store>
+                       <table>magazento_gallery_category_store</table>
+                   </category_store>
+               </entities>
+           </gallery_mysql4>
+       </models>
+       <resources>
+           <gallery_setup>
+               <setup>
+                   <module>Magazento_Gallery</module>
+               </setup>
+               <connection>
+                   <use>core_setup</use>
+               </connection>
+           </gallery_setup>
+           <gallery_write>
+               <connection>
+                   <use>core_write</use>
+               </connection>
+           </gallery_write>
+           <gallery_read>
+               <connection>
+                   <use>core_read</use>
+               </connection>
+           </gallery_read>
+       </resources>
+       <blocks>
+           <gallery>
+               <class>Magazento_Gallery_Block</class>
+           </gallery>
+       </blocks>
+       <helpers>
+           <gallery>
+               <class>Magazento_Gallery_Helper</class>
+           </gallery>
+       </helpers>
+        <template>
+            <email>
+                <feedback_after_request_email translate="label">
+                    <label>feedback_after_request_email</label>
+                    <file>feedback_after_request_email.html</file>
+                    <type>html</type>
+                </feedback_after_request_email>
+                <feedback_notification_email translate="label">
+                    <label>feedback_notification_email</label>
+                    <file>feedback_notification_email.html</file>
+                    <type>html</type>
+                </feedback_notification_email>	
+            </email>
+        </template>        
+   </global>
+
+   <adminhtml>
+       <acl>
+           <resources>
+               <admin>
+                   <children>
+                       <gallery translate="title">
+                           <title>PriceFeedback</title>
+                           <children>
+                               <item translate="title">
+                                   <title>Manage items </title>
+                               </item>
+                           </children>
+                           <sort_order>65</sort_order>
+                       </gallery>
+                       <system>
+                           <children>
+                               <config>
+                                   <children>
+                                       <gallery>
+                                           <title>PriceFeedback</title>
+                                           <sort_order>101</sort_order>
+                                       </gallery>
+                                   </children>
+                               </config>
+                           </children>
+                       </system>
+                   </children>
+               </admin>
+           </resources>
+       </acl>
+       <menu>
+           <cms translate="title" module="gallery">
+               <children>
+                   <gallery translate="title" module="gallery">
+                       <title>G★llery</title>
+                       <sort_order>65</sort_order>
+                       <children>
+                           <item translate="title" module="gallery">
+                               <title>Manage G★llery</title>
+                               <action>gallery/admin_item/</action>
+                               <resource>gallery/admin/item</resource>
+                           </item>
+                           <categories translate="title" module="gallery">
+                               <title>Categories</title>
+                               <action>gallery/admin_category/</action>
+                               <resource>gallery/admin/category</resource>
+                               <sort_order>30</sort_order>
+                           </categories>
+                           <settings translate="title" module="gallery">
+                               <title>Settings</title>
+                               <action>adminhtml/system_config/edit/section/gallery</action>
+                               <sort_order>40</sort_order>
+                           </settings>
+                       </children>
+                   </gallery>
+               </children>
+           </cms>
+       </menu>
+   </adminhtml>
+   <default>
+       <gallery>
+            <jq>
+                <on>1</on>
+            </jq>
+            <toplinks>
+                <link>1</link>
+                <link_title>Magazento G★llery</link_title>
+            </toplinks>
+            
+            <general>
+                <background>/media/magazento_gallery/background_image/c90cfdfe87d21b60a49790eafdaef8fb.jpg</background>
+                <design>black</design>
+                <gridoffset>50</gridoffset>
+                <cellwidth>176</cellwidth>
+                <cellheight>176</cellheight>
+                <cellpadding>10</cellpadding>
+                <entrypropage>16</entrypropage>
+                <captionopacity>100</captionopacity>
+                <captionposition>bottom</captionposition>
+                <captionyoffset>-20</captionyoffset>
+
+                <pageofformat>Page #n of #m</pageofformat>
+
+                <emaillinktext>Email to Friend</emaillinktext>
+                <emailbody>mailto:email@echoecho.com?body=I found some great File here #url</emailbody>
+
+                <emailurlcustomprefix>http://www.magazento.com/</emailurlcustomprefix>
+                <emailurlcustomsuffix>emailurlcustomsuffix</emailurlcustomsuffix>
+            </general>
+            
+            <page>
+                <gridoffset>20</gridoffset>
+                <cellwidth>126</cellwidth>
+                <cellheight>126</cellheight>
+                <cellpadding>5</cellpadding>
+                <entrypropage>16</entrypropage>
+                <captionopacity>70</captionopacity>
+                <captionposition>bottom</captionposition>
+                <captionyoffset>-20</captionyoffset>
+
+            </page>
+            
+            <category>
+                <gridoffset>20</gridoffset>
+                <cellwidth>106</cellwidth>
+                <cellheight>106</cellheight>
+                <cellpadding>5</cellpadding>
+                <entrypropage>16</entrypropage>
+                <captionopacity>70</captionopacity>
+                <captionposition>bottom</captionposition>
+                <captionyoffset>-20</captionyoffset>
+
+            </category>
+            
+            <product>
+                <gridoffset>20</gridoffset>
+                <cellwidth>106</cellwidth>
+                <cellheight>106</cellheight>
+                <cellpadding>5</cellpadding>
+                <entrypropage>16</entrypropage>
+                <captionopacity>70</captionopacity>
+                <captionposition>bottom</captionposition>
+                <captionyoffset>-20</captionyoffset>
+
+            </product>
+       </gallery>
+   </default>
+</config>

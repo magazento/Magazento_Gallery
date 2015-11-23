@@ -1,0 +1,20 @@
+
+<layout>
+    <default>
+        <reference name="top.links">
+            <block type="gallery/links" name="add.link">
+                <action method="addTopLink"></action>
+            </block>
+        </reference>
+    </default>
+
+    <gallery_index_index>
+        <block type="core/template"  name="root" output="toHtml" template="magazento_gallery/index.phtml" >
+            <block type="core/template" name="magazento_gallery_item_category" alias="magazento_gallery_item_category" template="magazento_gallery/items/item_category.phtml"/>
+            <block type="core/template" name="magazento_gallery_item_single" alias="magazento_gallery_item_single" template="magazento_gallery/items/item_single.phtml"/>
+        </block>
+    </gallery_index_index>
+
+
+    
+</layout>

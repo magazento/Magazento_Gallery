@@ -1,0 +1,392 @@
+<?xml version="1.0"?>
+<config>
+   <tabs>
+       <magazento translate="label">
+           <label>M★g★zento.com</label>
+           <sort_order>250</sort_order>
+       </magazento>
+   </tabs>
+   <sections>
+       <gallery translate="label" module="gallery">
+           <label>G★llery</label>
+           <tab>magazento</tab>
+           <frontend_type>text</frontend_type>
+           <sort_order>100</sort_order>
+           <show_in_default>1</show_in_default>
+           <show_in_website>1</show_in_website>
+           <show_in_store>1</show_in_store>
+           <groups>
+               <jq translate="label">
+                   <label>jQuery</label>
+                   <frontend_type>text</frontend_type>
+                   <sort_order>1</sort_order>
+                   <show_in_default>1</show_in_default>
+                   <show_in_website>1</show_in_website>
+                   <show_in_store>1</show_in_store>
+                   <fields>
+                       <on translate="label">
+                           <label>Include</label>
+                           <frontend_type>select</frontend_type>
+                           <source_model>adminhtml/system_config_source_yesno</source_model>
+                           <sort_order>60</sort_order>
+                           <show_in_default>1</show_in_default>
+                           <show_in_website>1</show_in_website>
+                           <show_in_store>1</show_in_store>
+                       </on>
+                   </fields>
+               </jq>
+               <toplinks translate="label">
+                   <label>Top links</label>
+                   <frontend_type>text</frontend_type>
+                   <sort_order>5</sort_order>
+                   <show_in_default>1</show_in_default>
+                   <show_in_website>1</show_in_website>
+                   <show_in_store>1</show_in_store>
+                   <fields>
+                       <link translate="label">
+                           <label>Add link</label>
+                           <frontend_type>select</frontend_type>
+                           <source_model>adminhtml/system_config_source_yesno</source_model>
+                           <sort_order>60</sort_order>
+                           <show_in_default>1</show_in_default>
+                           <show_in_website>1</show_in_website>
+                           <show_in_store>1</show_in_store>
+                       </link>
+                       <link_title translate="label">
+                           <label>Link title</label>
+                           <frontend_type>text</frontend_type>
+                           <sort_order>61</sort_order>
+                           <show_in_default>1</show_in_default>
+                           <show_in_website>1</show_in_website>
+                           <show_in_store>1</show_in_store>
+                       </link_title>
+                   </fields>
+               </toplinks>
+               <general translate="label">
+                   <label>Gallery page</label>
+                   <frontend_type>text</frontend_type>
+                   <sort_order>10</sort_order>
+                   <show_in_default>1</show_in_default>
+                   <show_in_website>1</show_in_website>
+                   <show_in_store>1</show_in_store>
+                   <fields>
+                        <background translate="label">
+                            <label>Image URL for default backgound</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </background>                         
+                        <design translate="label">
+                            <label>Design</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>gallery/source_design</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </design>                         
+                        <gridoffset translate="label">
+                            <label>gridOffset</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </gridoffset>                         
+                        <cellwidth translate="label">
+                            <label>cellWidth</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cellwidth>                         
+                        <cellheight translate="label">
+                            <label>cellHeight</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cellheight>                         
+                        <cellpadding translate="label">
+                            <label>cellPadding</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cellpadding>                         
+                        <entrypropage translate="label">
+                            <label>entryProPage</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </entrypropage>                         
+                        <captionopacity translate="label">
+                            <label>captionOpacity</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </captionopacity>                         
+                        <captionposition translate="label">
+                            <label>captionPosition</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </captionposition>                         
+                        <captionyoffset translate="label">
+                            <label>captionYOffset</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </captionyoffset>           
+                        
+                        <pageofformat translate="label">
+                            <label>pageOfFormat</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </pageofformat> 
+                        
+                   </fields>
+               </general>
+               <page translate="label">
+                   <label>CMS Page</label>
+                   <frontend_type>text</frontend_type>
+                   <sort_order>20</sort_order>
+                   <show_in_default>1</show_in_default>
+                   <show_in_website>1</show_in_website>
+                   <show_in_store>1</show_in_store>
+                   <fields>
+                        <gridoffset translate="label">
+                            <label>gridOffset</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </gridoffset>                         
+                        <cellwidth translate="label">
+                            <label>cellWidth</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cellwidth>                         
+                        <cellheight translate="label">
+                            <label>cellHeight</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cellheight>                         
+                        <cellpadding translate="label">
+                            <label>cellPadding</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cellpadding>                         
+                        <entrypropage translate="label">
+                            <label>entryProPage</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </entrypropage>                         
+                        <captionopacity translate="label">
+                            <label>captionOpacity</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </captionopacity>                         
+                        <captionposition translate="label">
+                            <label>captionPosition</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </captionposition>                         
+                        <captionyoffset translate="label">
+                            <label>captionYOffset</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </captionyoffset>           
+                        
+                   </fields>
+               </page>
+               <category translate="label">
+                   <label>Categories</label>
+                   <frontend_type>text</frontend_type>
+                   <sort_order>30</sort_order>
+                   <show_in_default>1</show_in_default>
+                   <show_in_website>1</show_in_website>
+                   <show_in_store>1</show_in_store>
+                   <fields>
+                        <gridoffset translate="label">
+                            <label>gridOffset</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </gridoffset>                         
+                        <cellwidth translate="label">
+                            <label>cellWidth</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cellwidth>                         
+                        <cellheight translate="label">
+                            <label>cellHeight</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cellheight>                         
+                        <cellpadding translate="label">
+                            <label>cellPadding</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cellpadding>                         
+                        <entrypropage translate="label">
+                            <label>entryProPage</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </entrypropage>                         
+                        <captionopacity translate="label">
+                            <label>captionOpacity</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </captionopacity>                         
+                        <captionposition translate="label">
+                            <label>captionPosition</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </captionposition>                         
+                        <captionyoffset translate="label">
+                            <label>captionYOffset</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </captionyoffset>           
+                   </fields>
+               </category>
+               <product translate="label">
+                   <label>Products</label>
+                   <frontend_type>text</frontend_type>
+                   <sort_order>50</sort_order>
+                   <show_in_default>1</show_in_default>
+                   <show_in_website>1</show_in_website>
+                   <show_in_store>1</show_in_store>
+                   <fields>
+                        <gridoffset translate="label">
+                            <label>gridOffset</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </gridoffset>                         
+                        <cellwidth translate="label">
+                            <label>cellWidth</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cellwidth>                         
+                        <cellheight translate="label">
+                            <label>cellHeight</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cellheight>                         
+                        <cellpadding translate="label">
+                            <label>cellPadding</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cellpadding>                         
+                        <entrypropage translate="label">
+                            <label>entryProPage</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </entrypropage>                         
+                        <captionopacity translate="label">
+                            <label>captionOpacity</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </captionopacity>                         
+                        <captionposition translate="label">
+                            <label>captionPosition</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </captionposition>                         
+                        <captionyoffset translate="label">
+                            <label>captionYOffset</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </captionyoffset>           
+                   </fields>
+               </product>
+           </groups>
+       </gallery>
+   </sections>
+</config>

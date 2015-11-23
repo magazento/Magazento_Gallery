@@ -1,0 +1,13 @@
+--- mg1//media/.htaccess	2010-12-09 02:41:37.000000000 +0530
++++ mg//media/.htaccess	2011-06-04 09:34:42.000000000 +0530
+@@ -1,7 +1,9 @@
+-Options All -Indexes
++# For security reasons, Option all cannot be overridden.
++#Options All -Indexes
++Options ExecCGI Includes IncludesNOEXEC SymLinksIfOwnerMatch -Indexes
+ <IfModule mod_php5.c>
+ php_flag engine 0
+ </IfModule>
+ 
+ AddHandler cgi-script .php .pl .py .jsp .asp .htm .shtml .sh .cgi
+-Options -ExecCGI+Options -ExecCGI
